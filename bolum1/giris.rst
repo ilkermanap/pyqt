@@ -16,6 +16,5 @@ Kullanıcı arayüzü hazırlarken bize yardımcı olacak birkaç uygulama bulun
 bunlardan birisidir. Designer ile dil bağımsız kullanıcı arayüzleri hazırlayıp, farklı diller
 için arayüz tanımlama kaynak kodları üretebiliriz.
 
-.. image:: ../images/designer001.png
 
 Qt için c++ ya da python dilinde arayüz tanımlama kaynak kodu üretilebilir. 

@@ -204,6 +204,9 @@ htmlhelp_basename = 'PyQtvePySidernekleridoc'
 # -- Options for LaTeX output ---------------------------------------------
 
 latex_elements = {
+'preamble': r'''
+\usepackage{hyperref}
+''',
 # The paper size ('letterpaper' or 'a4paper').
 #'papersize': 'letterpaper',
 
