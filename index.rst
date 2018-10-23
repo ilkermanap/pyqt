@@ -12,7 +12,7 @@ Contents:
    :maxdepth: 2
 
    bolum1/giris	      
-
+   bolum2/ornek
 
 Indices and tables
 ==================
