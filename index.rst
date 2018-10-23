@@ -13,6 +13,7 @@ Contents:
 
    bolum1/giris	      
    bolum2/ornek
+   guncelleme/nasil
 
 Indices and tables
 ==================
