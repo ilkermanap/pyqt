@@ -114,3 +114,70 @@ Bu aşamada, elimizde yeni bir ui dosyası ve yazılmış uygulama bulunmaktadı
 Resim Kullanımı
 ---------------
 Bir uygulamada nasıl resim kullanabileceğimizi göreceğiz.
+
+Designer kullanarak bir buton, iki label bulunan bir ekran tasarlayacağız. Layout yerleşimi gibi konular yukarıda bahsedildiği için doğruca uygulamaya geçeceğiz.
+
+.. figure:: ../images/qt-resimgosterici-001.png
+   :scale: 55 %
+
+   Uygulama için gerekli herşey. Butonlar, signal/slot bağlantıları, vs.
+
+Şekilde görüldüğü gibi, içini doldurmamız gereken dosyaSec fonksiyonumuz bulunmaktadır. Bu fonksiyon, btnDosyaSec butonu tıklandığında çalışacaktır. Şekilde sağ altta görülen signal/slot editor kısmındadır.
+
+Seçilen resim dosyasını QLabel tipindeki lblResim nesnesinin üzerine yerleştireceğiz. Seçilen dosya adını da yine QLabel tipindeki lblDosyaAdi nesnesi görüntüleyecektir.
+
+
+.. code-block:: bash
+		
+    ~$ pyside-uic  resimgosterici.ui  > ui_resimgosterici.py
+
+Yukarıdaki komut ile ekran tasarımını import edebileceğimiz python kaynak koduna çeviririz. Çok yapılan hatalardan birisi de, üretilen bu dosya içine kendi kodlarımızı yazmaya başlamaktır. Dosyanın giriş kısmında 'WARNING! All changes made in this file will be lost!' uyarısını dikkate almak gerekir. Arayüz ile kendi yazdığımız kısımları farklı dosyada tutmamız, arayüzde yapılacak değişikliklerden kendi yazdığımız kısmın etkilenmemesini, aynı zamanda da designer ile yaptığınız görsel değişikliklerin devreye alınmasını sağlar.
+
+Aşağıda, üretilmiş olan arayüzü kullanan ve bu haliyle pencereyi görüntüleme dışında hiçbir şey yapmayan kod parçası bulunmaktadır. dosyaSec fonksiyonunu yazarak, uygulamanın istediğimiz işi yapmasını sağlayacağız.
+
+.. code-block:: python
+   :linenos:
+
+   from PySide.QtGui import *
+   from PySide.QtCore import *
+   from ui_resimgosterici import Ui_dlgResimGosterici
+   
+   import sys
+   
+   
+   class MainWindow(QDialog, Ui_dlgResimGosterici):
+      def __init__(self, app = None):
+        super(MainWindow, self).__init__()
+	self.app = app
+	self.setupUi(self)
+	self.show()
+
+      def dosyaSec(self):
+        pass
+
+   if __name__ == "__main__":
+      app = QApplication(sys.argv)
+      mainWin = MainWindow(app)
+      ret = app.exec_()
+      app.exit()
+      sys.exit(ret)
+
+
+QFileDialog nesnesi, bize dosya seçim penceresi sunar. getOpenFileName metodu ise dosya adı ve dosya tipi içeren ikili sonuc döndürür. Yukarıdaki uygulamada dosyaSec metodunu aşağıdaki kod bloğu ile değiştirdiğimizde, seçtiğimiz dosyanın lblResim nesnesi üzerinde görüntülendiğini görürüz.
+
+.. code-block:: python
+      
+   def dosyaSec(self):
+      fname, ftype = QFileDialog.getOpenFileName(self, 'Open file',
+      '',"Image files (*.jpg *.gif)")
+      self.lblResim.setPixmap(QPixmap(fname))
+
+.. figure:: ../images/qt-resimgosterici-002.png
+   :scale: 55 %
+
+   Dosya seçme
+	   
+.. figure:: ../images/qt-resimgosterici-003.png
+   :scale: 55 %
+
+   Görüntüleme
