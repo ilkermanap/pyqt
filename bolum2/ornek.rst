@@ -236,7 +236,7 @@ Aşağıdaki resmi kullanarak, resimbilgi.ui adında yeni bir arayüz dosyası o
 
        def dosyaSec(self):
            if self.bilgipenceresi is not None:
-           self.bilgipenceresi.close()
+               self.bilgipenceresi.close()
 
 	   fname, ftype = QFileDialog.getOpenFileName(self, 'Open file',
  	                                              '',"Image files (*.jpg *.gif)")
@@ -254,3 +254,6 @@ Aşağıdaki resmi kullanarak, resimbilgi.ui adında yeni bir arayüz dosyası o
       sys.exit(ret)
 
 
+Uygulama içinde yeni pencere açmak için, önce o pencereyi tanımlayan sınıfı yazıyoruz. Sınıfı yazarken, arayüz dosyasından ürettiğimiz python dosyasında bulunan sınıftan faydalanıyoruz. Yeni yazdığımız sınıf, arayüz dosyasından üretilen kod içindeki sınıfı miras alarak oluşturulur. Böylece arayüz dosyasında bulunan ve pencerenin nasıl görünmesi gerektiğini, hangi nesnelerin arasında ne tür signal/slot bağlantıları olduğunu, arayüze yerleştirdiğiniz her türlü nesnenin bütün ince ayarları, esas işi yazacağınız kısımdan bağımsız olacaktır.
+
+Nesne isimlerini değiştirmeden yapacağımız bütün arayüz değişikliklerinde, ana uygulamamızda hiçbir şey değiştirmeden pencerenin görünümünü düzenlemek mümkündür. 
