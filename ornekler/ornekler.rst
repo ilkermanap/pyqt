@@ -1,5 +1,5 @@
-Örnekler
-========
+Örneklerin Kaynak Kodları
+=========================
 
 Belgede bahsedilen örneklerin kaynak kodlarını burada bulabilirsiniz. Designer ile oluşturulan
 sayfa tasarımlarına  http://github.com/ilkermanap/pyqt adresinden erişebilirsiniz.
