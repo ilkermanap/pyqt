@@ -13,6 +13,7 @@ Contents:
 
    bolum1/giris	      
    bolum2/ornek
+   bolum3/plot
    guncelleme/nasil
    ornekler/ornekler
 
