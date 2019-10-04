@@ -5,9 +5,11 @@ Giriş
 Python ile kullanıcı arayüzleri tasarlamak için kullanabileceğimiz birden fazla kütüphane
 mevcuttur. En çok bilineni PyQt'dir.
 
-PyQt'nin birebir kopyası diyebileceğimiz PySide adında bir kütüphane daha bulunmaktadır. İkisi
-arasındaki fark, lisanslama modelidir. PySide ile ticari uygulama hazırlayıp satabilirsiniz.
+PyQt'nin birebir kopyası diyebileceğimiz PySide2 adında bir kütüphane daha bulunmaktadır. İkisi
+arasındaki fark, lisanslama modelidir. PySide2 ile ticari uygulama hazırlayıp satabilirsiniz.
 PyQt ile ticari uygulama yapıp satabilmek için ticari lisansını almanız gerekmektedir.
+
+https://www.pyside.org
 
 Araçlar
 -------

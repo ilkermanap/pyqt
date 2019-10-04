@@ -1,34 +1,35 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'resimgosterici.ui'
+# Form implementation generated from reading ui file 'resimgosterici.ui',
+# licensing of 'resimgosterici.ui' applies.
 #
-# Created: Wed Oct 24 12:20:16 2018
-#      by: pyside-uic 0.2.15 running on PySide 1.2.2
+# Created: Fri Oct  4 09:31:36 2019
+#      by: pyside2-uic  running on PySide2 5.12.3
 #
 # WARNING! All changes made in this file will be lost!
 
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui, QtWidgets
 
 class Ui_dlgResimGosterici(object):
     def setupUi(self, dlgResimGosterici):
         dlgResimGosterici.setObjectName("dlgResimGosterici")
         dlgResimGosterici.resize(489, 359)
-        self.verticalLayout = QtGui.QVBoxLayout(dlgResimGosterici)
+        self.verticalLayout = QtWidgets.QVBoxLayout(dlgResimGosterici)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.horizontalLayout = QtGui.QHBoxLayout()
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.lblDosyaAdi = QtGui.QLabel(dlgResimGosterici)
+        self.lblDosyaAdi = QtWidgets.QLabel(dlgResimGosterici)
         self.lblDosyaAdi.setObjectName("lblDosyaAdi")
         self.horizontalLayout.addWidget(self.lblDosyaAdi)
-        spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
-        self.btnDosyaSec = QtGui.QPushButton(dlgResimGosterici)
+        self.btnDosyaSec = QtWidgets.QPushButton(dlgResimGosterici)
         self.btnDosyaSec.setObjectName("btnDosyaSec")
         self.horizontalLayout.addWidget(self.btnDosyaSec)
         self.verticalLayout.addLayout(self.horizontalLayout)
-        spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem1)
-        self.lblResim = QtGui.QLabel(dlgResimGosterici)
+        self.lblResim = QtWidgets.QLabel(dlgResimGosterici)
         self.lblResim.setMinimumSize(QtCore.QSize(0, 300))
         self.lblResim.setObjectName("lblResim")
         self.verticalLayout.addWidget(self.lblResim)
@@ -38,8 +39,8 @@ class Ui_dlgResimGosterici(object):
         QtCore.QMetaObject.connectSlotsByName(dlgResimGosterici)
 
     def retranslateUi(self, dlgResimGosterici):
-        dlgResimGosterici.setWindowTitle(QtGui.QApplication.translate("dlgResimGosterici", "Dialog", None, QtGui.QApplication.UnicodeUTF8))
-        self.lblDosyaAdi.setText(QtGui.QApplication.translate("dlgResimGosterici", "TextLabel", None, QtGui.QApplication.UnicodeUTF8))
-        self.btnDosyaSec.setText(QtGui.QApplication.translate("dlgResimGosterici", "PushButton", None, QtGui.QApplication.UnicodeUTF8))
-        self.lblResim.setText(QtGui.QApplication.translate("dlgResimGosterici", "TextLabel", None, QtGui.QApplication.UnicodeUTF8))
+        dlgResimGosterici.setWindowTitle(QtWidgets.QApplication.translate("dlgResimGosterici", "Dialog", None, -1))
+        self.lblDosyaAdi.setText(QtWidgets.QApplication.translate("dlgResimGosterici", "TextLabel", None, -1))
+        self.btnDosyaSec.setText(QtWidgets.QApplication.translate("dlgResimGosterici", "PushButton", None, -1))
+        self.lblResim.setText(QtWidgets.QApplication.translate("dlgResimGosterici", "TextLabel", None, -1))
 

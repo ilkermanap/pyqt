@@ -48,34 +48,17 @@ sayfalarda bulacaksınız.
 	
    Configure Connection ekranında, clicked() için sağ tarafta etiket_guncelle() seçilmelidir. Ok tuşuna basıp devam edilir. Bu aşamada designer uygulaması ile işimiz bitiyor. Dosyayı ornek.ui ismi ile kaydedip designer uygulamasını kapatırız.
 
-.. figure:: ../images/qt-009.png
-   :scale: 35 %
+
+Designer ile ui dosyasını kullanabilmek için pyside2-uic uygulamasını kullanırız:
+   
+    pyside2-uic ornek.ui > ui_ornek.py
 	
-   Şimdi, bu ekran tasarımını python koduna çeviriyoruz. Pyside-uic yerine qt5 ile gelen uic uygulamasını kullanabilirsiniz. Yukarıdaki komut sonrasında elimizde ui_ornek.py dosyası olacaktır. Bu ui_ornek dosyasının içine hiçbir ek yapılmamalıdır.
+Şimdi, bu ekran tasarımını python koduna çeviriyoruz. Pyside2-uic yerine qt5 ile gelen uic uygulamasını kullanabilirsiniz. Yukarıdaki komut sonrasında elimizde ui_ornek.py dosyası olacaktır. Bu ui_ornek dosyasının içine hiçbir ek yapılmamalıdır.
 
 
-.. code-block:: python   
+.. literalinclude:: ../ornekler/001/main.py
+   :language: python
 
-   import sys
-   from PySide.QtGui import *
-   from PySide.QtCore import *
-   from ui_ornek import Ui_DlgOrnek
-   class MainWindow(QDialog, Ui_DlgOrnek):
-     def __init__(self, app=None):
-       super(MainWindow, self).__init__()
-       self.app = app
-       self.setupUi(self)
-       self.show()
-     
-     def etiket_guncelle(self):
-       self.lblMetin.setText(self.editMetin.text())
-
-   if __name__ == "__main__":
-     app = QApplication(sys.argv)
-     mainWin = MainWindow(app)
-     ret = app.exec_()
-     app.exit()
-     sys.exit(ret)
 
 Değişikliklerin yapılabileceği main.py dosyasının içeriği yukarıdaki gibidir. Designer ile oluşturulan arayüz dosyasından üretilen sınıf, kendi penceremizi oluşturmak için kullanılmıştır. Ui_DlgOrnek, uic ile üretilen ui_ornek.py içindedir.
 
@@ -125,41 +108,18 @@ Designer kullanarak bir buton, iki label bulunan bir ekran tasarlayacağız. Lay
 Seçilen resim dosyasını QLabel tipindeki lblResim nesnesinin üzerine yerleştireceğiz. Seçilen dosya adını da yine QLabel tipindeki lblDosyaAdi nesnesi görüntüleyecektir.
 
 
-.. code-block:: bash
-		
-    ~$ pyside-uic  resimgosterici.ui  > ui_resimgosterici.py
+    ~$ pyside2-uic  resimgosterici.ui  > ui_resimgosterici.py
 
+    
 Yukarıdaki komut ile ekran tasarımını import edebileceğimiz python kaynak koduna çeviririz. Çok yapılan hatalardan birisi de, üretilen bu dosya içine kendi kodlarımızı yazmaya başlamaktır. Dosyanın giriş kısmında 'WARNING! All changes made in this file will be lost!' uyarısını dikkate almak gerekir. Arayüz ile kendi yazdığımız kısımları farklı dosyada tutmamız, arayüzde yapılacak değişikliklerden kendi yazdığımız kısmın etkilenmemesini, aynı zamanda da designer ile yaptığınız görsel değişikliklerin devreye alınmasını sağlar.
 
 Aşağıda, üretilmiş olan arayüzü kullanan ve bu haliyle pencereyi görüntüleme dışında hiçbir şey yapmayan kod parçası bulunmaktadır. dosyaSec fonksiyonunu yazarak, uygulamanın istediğimiz işi yapmasını sağlayacağız.
 
-.. code-block:: python
-   :linenos:
 
-   from PySide.QtGui import *
-   from PySide.QtCore import *
-   from ui_resimgosterici import Ui_dlgResimGosterici
-   
-   import sys
-   
-   
-   class MainWindow(QDialog, Ui_dlgResimGosterici):
-      def __init__(self, app = None):
-        super(MainWindow, self).__init__()
-	self.app = app
-	self.setupUi(self)
-	self.show()
+.. literalinclude:: ../ornekler/002/resim.py
+   :language: python
 
-      def dosyaSec(self):
-        pass
-
-   if __name__ == "__main__":
-      app = QApplication(sys.argv)
-      mainWin = MainWindow(app)
-      ret = app.exec_()
-      app.exit()
-      sys.exit(ret)
-
+	     
 
 QFileDialog nesnesi, bize dosya seçim penceresi sunar. getOpenFileName metodu ise dosya adı ve dosya tipi içeren ikili sonuc döndürür. Yukarıdaki uygulamada dosyaSec metodunu aşağıdaki kod bloğu ile değiştirdiğimizde, seçtiğimiz dosyanın lblResim nesnesi üzerinde görüntülendiğini görürüz.
 
@@ -195,63 +155,9 @@ Aşağıdaki resmi kullanarak, resimbilgi.ui adında yeni bir arayüz dosyası o
    :scale: 55 %
 
 
-.. code-block:: python
-   :linenos:
-		
-   from PySide.QtGui import *
-   from PySide.QtCore import *
-   from ui_resimgosterici import Ui_dlgResimGosterici
-   from ui_resimbilgi import Ui_dlgResimBilgi
-   
-   import sys
-   
-   
-   class BilgiWindow(QDialog, Ui_dlgResimBilgi):
-       def __init__(self, parent=None, gorsel=None):
-           super(BilgiWindow, self).__init__()
-	   self.parent = parent
-	   self.resim = gorsel
-	   self.setupUi(self)
-	   self.editDosyaAdi.setText( self.parent.lblDosyaAdi.text())
-	   self.editYukseklik.setText(str(self.resim.height()))
-	   self.editGenislik.setText(str(self.resim.width()))
-	   
-       def resimBoyutlandir(self):
-	   oran = self.sldBuyutme.value()
-	   eski_yukseklik = int(self.editYukseklik.text())
-	   eski_genislik = int(self.editGenislik.text())
-	   yeni_yukseklik = eski_yukseklik * ( oran / 100.0)
-	   yeni_genislik = eski_genislik * (oran / 100.0)
-	   self.parent.lblResim.setPixmap(self.resim.scaled(yeni_genislik, yeni_yukseklik, Qt.KeepAspectRatio))
 
-
-   class MainWindow(QDialog, Ui_dlgResimGosterici):
-       def __init__(self, app = None):
-           super(MainWindow, self).__init__()
-	   self.app = app
-	   self.resim = None
-	   self.bilgipenceresi = None
-	   self.setupUi(self)
-	   self.show()
-
-       def dosyaSec(self):
-           if self.bilgipenceresi is not None:
-               self.bilgipenceresi.close()
-
-	   fname, ftype = QFileDialog.getOpenFileName(self, 'Open file',
- 	                                              '',"Image files (*.jpg *.gif)")
-	   self.resim = QPixmap(fname)
-	   self.lblResim.setPixmap(self.resim)
-	   self.lblDosyaAdi.setText( fname)
-	   self.bilgipenceresi = BilgiWindow(self, self.lblResim.pixmap())
-	   self.bilgipenceresi.show()
-
-   if __name__ == "__main__":
-      app = QApplication(sys.argv)
-      mainWin = MainWindow(app)
-      ret = app.exec_()
-      app.exit()
-      sys.exit(ret)
+.. literalinclude:: ../ornekler/003/resim.py
+   :language: python	   
 
 
 Uygulama içinde yeni pencere açmak için, önce o pencereyi tanımlayan sınıfı yazıyoruz. Sınıfı yazarken, arayüz dosyasından ürettiğimiz python dosyasında bulunan sınıftan faydalanıyoruz. Yeni yazdığımız sınıf, arayüz dosyasından üretilen kod içindeki sınıfı miras alarak oluşturulur. Böylece arayüz dosyasında bulunan ve pencerenin nasıl görünmesi gerektiğini, hangi nesnelerin arasında ne tür signal/slot bağlantıları olduğunu, arayüze yerleştirdiğiniz her türlü nesnenin bütün ince ayarları, esas işi yazacağınız kısımdan bağımsız olacaktır.

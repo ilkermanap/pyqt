@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'grafik.ui'
 #
-# Created: Mon Oct 29 17:46:18 2018
+# Created: Fri Oct  4 09:55:22 2019
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!

@@ -1,5 +1,6 @@
 from PySide.QtGui import *
 from PySide.QtCore import *
+
 from ui_grafik import Ui_dlgGrafik
 
 from veri import Ag, Islemci

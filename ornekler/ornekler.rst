@@ -22,4 +22,8 @@ Tek Pencere Resim Gösterici
 .. literalinclude:: 003/resim.py
    :language: python	      
 
-	      
+
+Kelime Tahmin Oyunu
+-------------------
+.. literalinclude:: 005/kelimetahmin.py
+   :language: python 

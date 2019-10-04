@@ -1,5 +1,8 @@
-from PySide.QtGui import *
-from PySide.QtCore import *
+from PySide2.QtWidgets import QApplication, QDialog, QFileDialog
+from PySide2.QtGui import QPixmap
+from PySide2.QtCore import Qt
+
+
 from ui_resimgosterici import Ui_dlgResimGosterici
 from ui_resimbilgi import Ui_dlgResimBilgi
 

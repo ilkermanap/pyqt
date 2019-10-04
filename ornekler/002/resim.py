@@ -1,5 +1,5 @@
-from PySide.QtGui import *
-from PySide.QtCore import *
+from PySide2.QtWidgets import QApplication, QDialog, QFileDialog
+from PySide2.QtGui import QPixmap
 from ui_resimgosterici import Ui_dlgResimGosterici
 
 import sys
@@ -16,6 +16,7 @@ class MainWindow(QDialog, Ui_dlgResimGosterici):
         fname, ftype = QFileDialog.getOpenFileName(self, 'Open file',
                                                      '',"Image files (*.jpg *.gif)")
         self.lblResim.setPixmap(QPixmap(fname))
+        self.lblDosyaAdi.setText(fname)
         
 
 if __name__ == "__main__":

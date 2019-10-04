@@ -14,6 +14,11 @@ Uygulamaya geçmeden önce kurmanız gereken ek modüller:
 Designer içinde tasarım yaparken, pyqtgraph nesnesi yerleştirebilmek mümkündür.
 Aşağıdaki bilgi, pyqtgraph belgesinden türkçeye çevirilmiştir:
 
+pyqtgraph PySide2 destegi
+-------------------------
+Pyqtgraph kütüphanesinin PySide2 desteği henüz geliştirilme aşamasındadır. Stabil sürümü çıktığında bu belge de ona göre güncellenecektir.
+
+
 PyQt Uygulamasının içine pyqtgraph nesneleri yerleştirme
 --------------------------------------------------------
 Pyqtgraph kütüphanesi tarafından sağlanan nesneleri, designer uygulaması içinde
