@@ -7,7 +7,8 @@ sayfa tasarımlarına  http://github.com/ilkermanap/pyqt adresinden erişebilirs
 
 İlk Basit Örnek
 ---------------
-Henüz eklenmedi
+.. literalinclude:: 001/main.py
+   :language: python
 
 
 Tek Pencere Resim Gösterici
