@@ -55,7 +55,7 @@ Designer ile ui dosyasını kullanabilmek için pyside2-uic uygulamasını kulla
 
 Windows sistemlerde aynı uygulama python dizininin içindeki Scripts dizinindedir. Python kurulumunuz C:\Python3.7 olsun. pyside-uic uygulamasını aşağıdaki gibi çağırırız:
 
-    C:\Python3.7\Scripts\pyside2-uic.exe  ornek.ui > ui_ornek.py
+    C:\\Python3.7\\Scripts\\pyside2-uic.exe  ornek.ui > ui_ornek.py
 
 
 Şimdi, bu ekran tasarımını python koduna çeviriyoruz. Pyside2-uic yerine qt5 ile gelen uic uygulamasını kullanabilirsiniz. Yukarıdaki komut sonrasında elimizde ui_ornek.py dosyası olacaktır. Bu ui_ornek dosyasının içine hiçbir ek yapılmamalıdır.
@@ -117,7 +117,7 @@ Linux sistemlerde:
 
 Windows sistemlerde aynı uygulama python dizininin içindeki Scripts dizinindedir. Python kurulumunuz C:\Python3.7 olsun. pyside-uic uygulamasını aşağıdaki gibi çağırırız:
 
-    C:\Python3.7\Scripts\pyside2-uic.exe  resimgosterici.ui  > ui_resimgosterici.py
+    C:\\Python3.7\\Scripts\\pyside2-uic.exe  resimgosterici.ui  > ui_resimgosterici.py
 
     
 Yukarıdaki komut ile ekran tasarımını import edebileceğimiz python kaynak koduna çeviririz. Çok yapılan hatalardan birisi de, üretilen bu dosya içine kendi kodlarımızı yazmaya başlamaktır. Dosyanın giriş kısmında 'WARNING! All changes made in this file will be lost!' uyarısını dikkate almak gerekir. Arayüz ile kendi yazdığımız kısımları farklı dosyada tutmamız, arayüzde yapılacak değişikliklerden kendi yazdığımız kısmın etkilenmemesini, aynı zamanda da designer ile yaptığınız görsel değişikliklerin devreye alınmasını sağlar.
