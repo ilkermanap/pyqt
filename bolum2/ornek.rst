@@ -53,7 +53,7 @@ Designer ile ui dosyasını kullanabilmek için pyside2-uic uygulamasını kulla
    
     pyside2-uic ornek.ui > ui_ornek.py
 
-Windows sistemlerde aynı uygulama python dizininin içindeki Scripts dizinindedir. Python kurulumunuz C:\Python3.7 olsun. pyside-uic uygulamasını aşağıdaki gibi çağırırız:
+Windows sistemlerde aynı uygulama python dizininin içindeki Scripts dizinindedir. Python kurulumunuz C:\\Python3.7 olsun. pyside-uic uygulamasını aşağıdaki gibi çağırırız:
 
     C:\\Python3.7\\Scripts\\pyside2-uic.exe  ornek.ui > ui_ornek.py
 
@@ -115,7 +115,7 @@ Linux sistemlerde:
 
     ~$ pyside2-uic  resimgosterici.ui  > ui_resimgosterici.py
 
-Windows sistemlerde aynı uygulama python dizininin içindeki Scripts dizinindedir. Python kurulumunuz C:\Python3.7 olsun. pyside-uic uygulamasını aşağıdaki gibi çağırırız:
+Windows sistemlerde aynı uygulama python dizininin içindeki Scripts dizinindedir. Python kurulumunuz C:\\Python3.7 olsun. pyside-uic uygulamasını aşağıdaki gibi çağırırız:
 
     C:\\Python3.7\\Scripts\\pyside2-uic.exe  resimgosterici.ui  > ui_resimgosterici.py
 
