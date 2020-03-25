@@ -49,10 +49,15 @@ sayfalarda bulacaksınız.
    Configure Connection ekranında, clicked() için sağ tarafta etiket_guncelle() seçilmelidir. Ok tuşuna basıp devam edilir. Bu aşamada designer uygulaması ile işimiz bitiyor. Dosyayı ornek.ui ismi ile kaydedip designer uygulamasını kapatırız.
 
 
-Designer ile ui dosyasını kullanabilmek için pyside2-uic uygulamasını kullanırız:
+Designer ile ui dosyasını kullanabilmek için pyside2-uic uygulamasını kullanırız. Linux için aşağıdaki gibi çağırılır:
    
     pyside2-uic ornek.ui > ui_ornek.py
-	
+
+Windows sistemlerde aynı uygulama python dizininin içindeki Scripts dizinindedir. Python kurulumunuz C:\Python3.7 olsun. pyside-uic uygulamasını aşağıdaki gibi çağırırız:
+
+    C:\Python3.7\Scripts\pyside2-uic.exe  ornek.ui > ui_ornek.py
+
+
 Şimdi, bu ekran tasarımını python koduna çeviriyoruz. Pyside2-uic yerine qt5 ile gelen uic uygulamasını kullanabilirsiniz. Yukarıdaki komut sonrasında elimizde ui_ornek.py dosyası olacaktır. Bu ui_ornek dosyasının içine hiçbir ek yapılmamalıdır.
 
 
@@ -61,7 +66,6 @@ Designer ile ui dosyasını kullanabilmek için pyside2-uic uygulamasını kulla
 
 
 Değişikliklerin yapılabileceği main.py dosyasının içeriği yukarıdaki gibidir. Designer ile oluşturulan arayüz dosyasından üretilen sınıf, kendi penceremizi oluşturmak için kullanılmıştır. Ui_DlgOrnek, uic ile üretilen ui_ornek.py içindedir.
-
 
 .. figure:: ../images/qt-010.png
    :scale: 35 %
@@ -107,8 +111,13 @@ Designer kullanarak bir buton, iki label bulunan bir ekran tasarlayacağız. Lay
 
 Seçilen resim dosyasını QLabel tipindeki lblResim nesnesinin üzerine yerleştireceğiz. Seçilen dosya adını da yine QLabel tipindeki lblDosyaAdi nesnesi görüntüleyecektir.
 
+Linux sistemlerde:
 
     ~$ pyside2-uic  resimgosterici.ui  > ui_resimgosterici.py
+
+Windows sistemlerde aynı uygulama python dizininin içindeki Scripts dizinindedir. Python kurulumunuz C:\Python3.7 olsun. pyside-uic uygulamasını aşağıdaki gibi çağırırız:
+
+    C:\Python3.7\Scripts\pyside2-uic.exe  resimgosterici.ui  > ui_resimgosterici.py
 
     
 Yukarıdaki komut ile ekran tasarımını import edebileceğimiz python kaynak koduna çeviririz. Çok yapılan hatalardan birisi de, üretilen bu dosya içine kendi kodlarımızı yazmaya başlamaktır. Dosyanın giriş kısmında 'WARNING! All changes made in this file will be lost!' uyarısını dikkate almak gerekir. Arayüz ile kendi yazdığımız kısımları farklı dosyada tutmamız, arayüzde yapılacak değişikliklerden kendi yazdığımız kısmın etkilenmemesini, aynı zamanda da designer ile yaptığınız görsel değişikliklerin devreye alınmasını sağlar.
