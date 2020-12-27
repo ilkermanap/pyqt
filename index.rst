@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 2
 
    bolum1/giris	      
+   bolum1/pyside6
    bolum2/ornek
    bolum3/plot
    guncelleme/nasil
